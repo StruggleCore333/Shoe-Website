@@ -1,0 +1,203 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100rem;
+  }
+  
+  .header1 {
+    background-color: #EEEEEE;
+    height: 25px;
+  }
+
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin-left: 230px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+  }
+nav ul li a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  position: relative;
+  transition: color 0.3s ease;
+}
+nav ul li a:hover {
+  color: #666; 
+}
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background-color: #666;
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+  .icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  .icons input[type="text"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .icon {
+    font-size: 20px;
+  }
+  .inventory {
+    font-weight: bold;
+  }
+  .subtext {
+    text-align: center;
+    background-color: #EEEEEE;
+    padding: 20px;
+  }
+  .subtext p {
+    margin: 0;
+    font-size: 14px;
+  }
+  .subtext a {
+    text-decoration: none;
+  }  
+  .big-box-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+    padding: 0 5%;
+  }
+  .big-box-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+    padding: 0 5%;
+  }
+  .big-box {
+    flex: 1;
+    height: 400px;
+    background-color: #f4f4f4;
+    border: 2px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+  }
+  .box-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;  /* Align everything to the bottom */
+    height: 100%;
+    width: 100%;
+    position: relative;  /* So that brand text can be positioned above the button */
+  }
+  .brand-text {
+    text-align: left; 
+    font-size: 18px; 
+    font-weight: bold; 
+    margin-bottom: 10px;
+    position: absolute;
+    bottom: 50px; 
+    left: 20px;
+  }
+  .shop-now-btn {
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  }
+  
+  .shop-now-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .Logo_box {
+    border: 2px solid;
+    height: 6.2rem;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .Logo_boxes {
+    width: 100px; 
+    height: 90%;
+    background-color: white;
+    margin: 0 40px;
+  }
+  .footer {
+    display: flex;
+    justify-content: space-around;
+    background-color: #EEEEEE;
+    padding: 20px 0;
+    color: #333;
+    height: 350px;
+    margin-top: 10rem;
+  }
+  .footer-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer-section h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  .footer-section p {
+    margin: 5px 0;
+  }
+  .social-icons {
+    display: flex;
+    gap: 10px;
+  }
+  .social-icons i {
+    font-size: 1.5em;
+    color: #333;
+    cursor: pointer;
+  }
+  .social-icons i:hover {
+    color: #0073e6;
+  }
+  
+  
+  
+  
