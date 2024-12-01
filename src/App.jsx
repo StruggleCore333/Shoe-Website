@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MainPage from "./MainPage.jsx";
+import LoginPage from "./LoginPage.jsx";
+import SignupPage from "./SignupPage.jsx";
 import MenPage from "./MWK/MenPage.jsx";
 import WomenPage from "./MWK/WomenPage.jsx";
 import KidsPage from "./MWK/KidsPage.jsx";
@@ -15,7 +17,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<MainPage />} />
+        <Route path="/" element={<LoginPage />} />
         <Route path="/men" element={<MenPage />} />
         <Route path="/women" element={<WomenPage />} />
         <Route path="/kids" element={<KidsPage />} />
