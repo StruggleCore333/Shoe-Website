@@ -1,266 +1,92 @@
-body, html {
+* {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    height: 200rem;
-  }
-  
-  .header1 {
-    background-color: #EEEEEE;
-    height: 25px;
-  }
-
-  .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 5%;
-  }
-  
-  .logo {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    padding: 0;
-    margin-left: 230px;
-  }
-  
-  nav ul li a {
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-  }
-nav ul li a {
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-  position: relative;
-  transition: color 0.3s ease;
-}
-nav ul li a:hover {
-  color: #666; 
-}
-nav ul li a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  width: 0;
-  height: 2px;
-  background-color: #666;
-  transition: width 0.3s ease;
-}
-
-nav ul li a:hover::after {
-  width: 100%;
-}
-
-  
-  .icons {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-  }
-  
-  .icons input[type="text"] {
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .icon {
-    font-size: 20px;
-  }
-  
-  .inventory {
-    font-weight: bold;
-  }
-  
-  .subtext {
-    text-align: center;
-    background-color: #EEEEEE;
-    padding: 20px;
-  }
-  
-  .subtext p {
-    margin: 0;
-    font-size: 14px;
-  }
-  
-  .subtext a {
-    text-decoration: none;
-  }  
-  .box1 {
-    border: 2px solid;
-    height: 500px;
-    display: flex;
-  }
-  .inBox1-1{
-    border: 2px solid;
-    width: 40%;
-    height: 500px;
-  }
-  .inBox1-2{
-    border: 2px solid;
-    width: 20%;
-    height: 500px;
-  }
-  .inBox1-3{
-    border: 2px solid;
-    width: 40%;
-    height: 500px;
-  }
-  .sports {
-    margin: 0px 5%;
-  }
-  .box2 {
-    border: 2px solid;
-    height: 400px;
-    display: flex;
-  }
-  .inBox2 {
-    position: relative;  
-    width: 25%;
-    height: 400px;
-    border: 2px solid;
-
-  }
-  .btn {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    padding: 10px 20px;
-    background-color: #000000;
-    color: white;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  .btn:hover {
-    background-color: #0056b3;
-  }
-  .promo1 {
-    text-align: center;
-    padding: 50px;
-    background-color: #fff;
-  }
-  
-  .promo1 h1 {
-    font-size: 48px;
-    font-weight: bold;
-    margin: 0;
-    color: #000;
-  }
-  
-  .promo1 p {
-    font-size: 16px;
-    color: #555;
-    margin: 10px 0 20px;
-  }
-
-  .promo1 button {
-    background-color: #000;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    transition: box-shadow 0.3s ease;
-  }
-  
-  .promo button:hover {
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
-  }
-  .featured {
-    margin: 0 5%;
-  }
-  .box3 {
-    border: 2px solid;
-    height: 600px;
-    display: flex;
-  }
-  .inBox3 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40%;
-    height: 600px;
-  }
-  
-  .innerBox3 {
-    position: relative;
+    font-family: sans-serif;
+    box-sizing: border-box;
+ }
+ 
+ .header {
+    padding: 20px 30px;
     width: 100%;
-    height: 100%;
-    border: 2px solid;
-  }
-  .btn:hover {
-    background-color: #0056b3;
-  }
-  .seller {
-    margin: 3% 5% 0 5%;
-
-  }
-  .box4 {
-    border: 2px solid;
-    height: 600px;
-  }
-  .promo2 {
-    text-align: center;
-    padding: 50px;
-    background-color: #fff;
-  }
-  
-  .promo2 h1 {
-    font-size: 48px;
-    font-weight: bold;
-    margin: 0;
-    color: #000;
-  }
-  .footer {
     display: flex;
-    justify-content: space-around;
-    background-color: #EEEEEE;
-    padding: 20px 0;
-    color: #333;
-    height: 350px;
-  }
-  
-  .footer-section {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .footer-section h3 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-    font-weight: bold;
-  }
-  
-  .footer-section p {
-    margin: 5px 0;
-  }
-  
-  .social-icons {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .social-icons i {
-    font-size: 1.5em;
-    color: #333;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+ }
+ 
+ .header .logo h2 {
     cursor: pointer;
+    font-size: 32px;
+ }
+ 
+ .header .nav ul {
+    display: flex;
+ }
+ 
+ .header .nav ul li {
+    margin-right: 20px;
+    list-style: none;
+    position: relative;
+ }
+ .header .nav ul li .login-button {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    padding: 12px 24px;
+    border: none;
+    background-color: #333;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
   }
   
-  .social-icons i:hover {
-    color: #0073e6;
+  .header .nav ul li .login-button:hover {
+    background-color: #555;
+    transform: scale(1.05);
+    box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.1);
   }
+  
+  .header .nav ul li .login-button svg {
+    margin-right: 8px;
+  }
+  
+  .text {
+    text-align: center;
+    margin-top: 80px;
+    padding: 60px 30px;
+    background: linear-gradient(to right, #444, #666);
+    color: white;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 30px;
+    max-width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  
+  .text h1 {
+    font-size: 52px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    color: #fff;
+  }
+  
+  .text h2 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .text h2:last-child {
+    color: #ccc;
+    font-size: 30px;
+  }
+
+
+ 
+

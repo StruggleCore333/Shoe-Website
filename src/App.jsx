@@ -1,34 +1,61 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import MainPage from "./MainPage.jsx";
-import MenPage from "./MWK/MenPage.jsx";
-import WomenPage from "./MWK/WomenPage.jsx";
-import KidsPage from "./MWK/KidsPage.jsx";
-import BrandsPage from "./MWK/Brands.jsx";
-import NikePage from "./Brands/Nike.jsx";  
-import AdidasPage from "./Brands/Adidas.jsx";
-import PumaPage from "./Brands/Puma.jsx";
-import AntaPage from "./Brands/Anta.jsx";
-import NewBalancePage from "./Brands/NewBalance.jsx";
-import UnderArmourPage from "./Brands/UnderArmour.jsx";
+import React from 'react';
+import Login from './LogIn';
+import Signup from './Signup';
+
+import { BrowserRouter, Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/men" element={<MenPage />} />
-        <Route path="/women" element={<WomenPage />} />
-        <Route path="/kids" element={<KidsPage />} />
-        <Route path="/brands" element={<BrandsPage />} />
-        <Route path="/nike" element={<NikePage />} />
-        <Route path="/adidas" element={<AdidasPage />} />
-        <Route path="/puma" element={<PumaPage />} />
-        <Route path="/anta" element={<AntaPage />} />
-        <Route path="/new-balance" element={<NewBalancePage />} />
-        <Route path="/under-armour" element={<UnderArmourPage />} />
+        <Route path='/login' element={<Login />}></Route>
+        <Route path='/signup' element={<Signup />}></Route>
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
+
+
+
+
+
+
+/*
+import React, { useState } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import Nav from './comp/nav.jsx';
+import Rout from './comp/rout.jsx';
+
+const App = () => {
+  const [cartItem, setcartItem] = useState([]);
+
+  const addtocart = (product) =>
+  {
+    const exsit = cartItem.find((x) => {
+      return x.id === product.id;
+    })
+    if(exsit)
+    {
+      alert("This Product is already added")
+    }
+    else 
+    {
+      setcartItem([...cartItem,{...product, quantity: 1}])
+      alert("Product Added to Cart"); 
+    }
+    console.log(setcartItem)
+  }
+
+  return (
+    <Router>
+      <Nav />
+      <Rout addtocart={addtocart} cartItem={cartItem} setcartItem={setcartItem} />
+    </Router>
+  );
+};
+
+export default App;
+*/
