@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import './input.css';  
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import validation from './LoginValidation';
+import axios from 'axios';
 
 function Login() {
   const [values, setValues] = useState({
@@ -10,15 +11,26 @@ function Login() {
   });
 
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate(); // For redirecting after login
 
   const handleInput = (event) => {
     setValues(prev => ({ ...prev, [event.target.name]: event.target.value }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const validationErrors = validation(values);
     setErrors(validationErrors);
+
+    if (Object.keys(validationErrors).length === 0) {
+      try {
+        const response = await axios.post('/api/login', values); // Login API call
+        localStorage.setItem('jwt_token', response.data.token); // Store JWT in localStorage
+        navigate('/user'); // Redirect to the user profile page
+      } catch (err) {
+        setErrors({ login: "Invalid credentials" }); // Handle login error
+      }
+    }
   };
 
   return (
@@ -50,6 +62,8 @@ function Login() {
           />
           {errors.password && <span className="error">{errors.password}</span>}
         </div>
+
+        {errors.login && <span className="error">{errors.login}</span>} {/* Display login error */}
 
         <div>
           <button type="submit" className="btn btn-success">Log in</button>
