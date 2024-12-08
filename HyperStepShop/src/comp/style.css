@@ -29,13 +29,14 @@
 }
 
 .header .nav ul li .link {
-   margin-top: 30px;
+   margin-top:  30px;
    text-decoration: none;
    color: #221638;
    font-size: 18px;
    position: relative;
    transition: color 0.3s ease;
 }
+
 .header .nav ul li .link1 {
    text-decoration: none; 
    color: #333; 
@@ -47,6 +48,7 @@
    transform: scale(1.2); 
    color: #6d6d6d; 
 }
+
 .header .nav ul li .link::before {
    content: '';
    position: absolute;
@@ -198,8 +200,9 @@
    margin-top: 10px;
 }
 
-.cart_container .cart_product .cart_box .cart_product_container .cart_item_detail .quantity_dec {
-   padding: 2px 4px 2px 4px;
+.cart_container .cart_product .cart_box .cart_product_container .cart_item_detail 
+.quantity_dec {
+   padding: 2px 4px;
    border: 1px solid #333;
    color: #333;
    margin-right: 5px;
@@ -227,6 +230,7 @@
    font-size: 22px;
    font-weight: 600;
 }
+
 .cart_container .cart_product .cart_box .cart_product_container .remove_cart:hover {
    color: red;
 }
@@ -253,7 +257,7 @@
    font-size: 18px;
 }
 
-/*Home Page*/
+/* Home Page */
 .subtext {
    text-align: center;
    background-color: #EEEEEE;
@@ -402,7 +406,7 @@
 
 .promo2 h1 {
    font-size: 48px;
-   font-weight: bold;
+   font-size: bold;
    margin: 0;
    color: #000;
 }
@@ -431,6 +435,7 @@
 .footer-section p {
    margin: 5px 0;
 }
+
 .footer-section .social-icons {
    display: grid;
    grid-template-columns: 1fr;
@@ -445,8 +450,8 @@
    transition: color 0.3s ease;
 }
 
-/* About Us*/
- .about-container {
+/* About Us */
+.about-container {
    max-width: 1200px;
    margin: 0 auto;
    margin-top: 50px;
@@ -455,42 +460,42 @@
    border-radius: 20px;
    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
    animation: fadeIn 1s ease-out;
- }
- 
- .about-header {
+}
+
+.about-header {
    text-align: center;
    padding: 60px 20px;
    background: linear-gradient(135deg, #3f51b5, #5c6bc0);
    color: white;
    border-radius: 20px 20px 0 0;
    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
- }
- 
- .about-header h1 {
+}
+
+.about-header h1 {
    font-size: 48px;
    margin: 0;
    letter-spacing: 2px;
- }
- 
- .about-header p {
+}
+
+.about-header p {
    font-size: 20px;
    margin-top: 10px;
    opacity: 0.8;
- }
- 
- .about-content {
+}
+
+.about-content {
    margin-top: 50px;
    padding: 30px;
    background-color: #fafafa;
    border-radius: 15px;
    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
- }
- 
- .about-text {
+}
+
+.about-text {
    margin-bottom: 30px;
- }
- 
- .about-text h2 {
+}
+
+.about-text h2 {
    font-size: 28px;
    color: #3f51b5;
    border-bottom: 3px solid #3f51b5;
@@ -498,81 +503,82 @@
    margin-bottom: 20px;
    position: relative;
    animation: slideIn 0.8s ease-out;
- }
- 
- .about-text p {
+}
+
+.about-text p {
    font-size: 16px;
    color: #555;
    line-height: 1.6;
    opacity: 0.8;
- }
- 
- .about-text ul {
+}
+
+.about-text ul {
    list-style-type: none;
    padding-left: 0;
- }
- 
- .about-text ul li {
+}
+
+.about-text ul li {
    font-size: 16px;
    color: #555;
    margin-bottom: 10px;
    display: flex;
    align-items: center;
- }
- .about-text ul li::before {
+}
+
+.about-text ul li::before {
    content: '✔';
    margin-right: 15px;
    color: #3f51b5;
    font-size: 20px;
- }
- 
- blockquote {
+}
+
+blockquote {
    font-style: italic;
    background-color: #f9f9f9;
    padding: 20px;
    border-left: 5px solid #3f51b5;
    margin: 20px 0;
    font-size: 18px;
- }
- 
- blockquote em {
+}
+
+blockquote em {
    font-style: normal;
    color: #3f51b5;
- }
- 
- .about-footer {
+}
+
+.about-footer {
    text-align: center;
    padding: 30px 20px;
    background-color: #3f51b5;
    color: white;
    border-radius: 0 0 20px 20px;
    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
- }
- 
- .about-footer p {
+}
+
+.about-footer p {
    font-size: 20px;
    margin: 0;
    letter-spacing: 1px;
- }
+}
 
-/* user */
- .user-profile-page {
+/* User */
+.user-profile-page {
    display: flex;
    flex-direction: column;
    min-height: 100%;
    width: 100%;
- }
- 
- .user-profile {
+}
+
+.user-profile {
    flex-grow: 1;
    padding: 20px;
    display: flex;
    justify-content: center;
    margin-top: 100px;
    width: 100%;
- }
- 
- .user-profile-card {
+}
+
+.user-profile-card {
    display: flex;
    background-color: white;
    padding: 30px;
@@ -583,66 +589,65 @@
    gap: 20px;
    justify-content: center;
    align-items: center;
- }
- 
- .user-profile-image {
+}
+
+.user-profile-image {
    flex-shrink: 0;
- }
- 
- .user-avatar {
+}
+
+.user-avatar {
    border-radius: 50%;
    width: 150px;
    height: 150px;
- }
- 
- .user-profile-info {
+}
+
+.user-profile-info {
    display: flex;
    flex-direction: column;
    justify-content: center;
- }
- 
- .user-profile-info h2 {
+}
+
+.user-profile-info h2 {
    margin: 0 0 15px;
    font-size: 1.8em;
    color: #333;
- }
- 
- p {
+}
+
+p {
    margin: 10px 0;
    font-size: 1.1em;
    color: #555;
- }
- 
- .user-id {
+}
+
+.user-id {
    color: #999;
    font-style: italic;
- }
- 
- @media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
    .user-profile-card {
      flex-direction: column;
      gap: 15px;
      text-align: center;
    }
- 
+
    .user-avatar {
      width: 120px;
      height: 120px;
    }
- }
- 
- @media (max-width: 480px) {
+}
+
+@media (max-width: 480px) {
    h2 {
      font-size: 1.4em;
    }
- 
+
    p {
      font-size: 1em;
    }
- 
+
    .user-avatar {
      width: 100px;
      height: 100px;
    }
- }
- 
+}
