@@ -1,30 +1,32 @@
 
-import React from 'react';
-import Login from './LogIn';
-import Signup from './Signup';
+// import React from 'react';
+// import Login from './LogIn';
+// import './AppStyle.css';
+// import Signup from './Signup';
+// import Home from './comp/homePage'
 
-import { BrowserRouter, Route, BrowserRouter as Router, Routes } from "react-router-dom";
+// import { BrowserRouter, Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
-function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Login />}></Route>
-        <Route path='/signup' element={<Signup />}></Route>
-      </Routes>
-    </BrowserRouter>
-  );
-}
+// function App() {
+//   return (
+//     <BrowserRouter>
+//       <Routes>
+//         <Route path='/' element={<Login />}></Route>
+//         <Route path='/signup' element={<Signup />}></Route>
+//       </Routes>
+//     </BrowserRouter>
+//   );
+// }
 
-export default App;
-
-
-
-
+// export default App;
 
 
 
-/*
+
+
+
+
+
 import React, { useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import Nav from './comp/nav.jsx';
@@ -59,4 +61,3 @@ const App = () => {
 };
 
 export default App;
-*/
