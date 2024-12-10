@@ -10,25 +10,39 @@ const db = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "",
-    database: "signup"
-})
+    database: "hyperstep"
+});
 
-app.post('/signup', (req, res) => {
-    const sql = "INSERT INTO `login`(`name`, `email`, `password`) VALUES ('" + req.body.name + "', '" + req.body.email + "', '" + req.body.password + "')";
+app.post('/hyperstep', (req, res) => {
+    const sql = "INSERT INTO `login`(`name`, `email`, `password`) VALUES (?, ?, ?)";
     const values = [
         req.body.name,
         req.body.email,
         req.body.password 
-
-    ]
-    db.query(sql,[values], (err, data) => {
+    ];
+    db.query(sql, values, (err, data) => {
         if (err) {
             return res.json("Error");
         } 
         return res.json(data);
-    })
-})
+    });
+});
+
+// New route to fetch products
+app.get('/api/products', (req, res) => {
+    db.query('SELECT * FROM products', (err, results) => {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        res.json(results);
+    });
+});
+
+app.get('/', (req, res) => {
+    res.send('Server is running');
+});
+
 
 app.listen(8081, () => {
     console.log("listening");
-})
+});
