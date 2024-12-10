@@ -6,6 +6,13 @@
    box-sizing: border-box;
 }
 
+.wrapper {
+   display: flex; /* or display: grid; */
+   justify-content: center;
+   align-items: center;
+   height: 100vh; /* Full viewport height */
+}
+
 .header {
    padding: 20px 30px;
    width: 100%;
@@ -19,11 +26,10 @@
    cursor: pointer;
    font-size: 32px;
 }
-
 /* --------------------------------------------------------------------------------------------------------------------------------*/
 /* ------------------------------------------------ NAV BAR -------------------------------------------------------------------------------------------------*/
 /* --------------------------------------------------------------------------------------------------------------------------------*/
-
+   
 .header .nav {
    display: flex;
 }
@@ -188,36 +194,24 @@
 /* --------------------------------------------------------------------------------------------------------------------------------*/
 /* ------------------------------------------------- CART ------------------------------------------------------------------------------------*/
 /* --------------------------------------------------------------------------------------------------------------------------------*/
-
 .empty_cart {
-
    margin-top: 20%;
    text-align: center; /* Center text for better mobile view */
 }
 
 .cart_shop {
-
    display: block; /* Center the button */
-
    margin: 30px auto; /* Center the button */
-
-   padding: 10px 30px;
-
+   padding: 10px 20px;
    border: 1px solid #333;
-
    border-radius: 5px;
-
    color: #333;
-
    outline: none;
-
    background: none;
-
    cursor: pointer;
-
    transition: background 0.3s ease, color 0.3s ease;
-
 }
+
 .cart_shop:hover {
    background: #333;
    color: #fff;
@@ -297,15 +291,17 @@
    margin-left: 20px;
    cursor: pointer;
    font-size: 22px;
-   font-weight : 600;
+   font-weight: 600;
 }
 
 .cart_container .cart_product .cart_box .cart_product_container .remove_cart:hover {
    color: red;
 }
 
+/* Updated Checkout Button Styles */
 .checkout {
-   margin-left: 45%;
+   display: block; /* Center the button */
+   margin: 20px auto; /* Center the button */
    padding: 10px 30px;
    border: none;
    border-radius: 5px;
@@ -313,7 +309,6 @@
    background: #333;
    color: #fff;
    cursor: pointer;
-   margin-top: 20px;
    transition: background 0.3s ease;
 }
 
@@ -321,9 +316,11 @@
    background: #585858;
 }
 
+/* Updated Cart Total Styles */
 .cart_total {
-   margin-left: 45%;
+   text-align: center; /* Center the total text */
    font-size: 18px;
+   margin-top: 20px; /* Add some space above */
 }
 
 

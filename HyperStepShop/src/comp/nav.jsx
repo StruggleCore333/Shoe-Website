@@ -19,7 +19,7 @@ const Nav = () => {
                 <div className={`nav ${isMobile ? "active" : ""}`}>
                     <ul>
                         <li>
-                            <Link to="/" className="link">Home</Link> 
+                            <Link to="/homepage" className="link">Home</Link> 
                         </li>
                         <li>
                             <Link to="/product" className="link">Product</Link>
