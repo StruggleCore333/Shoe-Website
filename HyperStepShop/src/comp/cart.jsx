@@ -41,7 +41,7 @@ const TotalPrice = cartItem.reduce((price, item) => price + item.quantity * item
         <>
         {cartItem.length === 0 &&
         <>
-         <h2 className="empty_cart">Cart Is Empty Please Select a Product</h2>
+         <h2 className="empty_cart">Cart Is Empty Please Select a product</h2>
          <Link to="/product">
          <button className="cart_shop">Shop Now</button>
          </Link>

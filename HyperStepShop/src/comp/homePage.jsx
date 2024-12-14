@@ -51,59 +51,53 @@ const Home = () => {
                 <h1>RUN, KEEP IT MOVING ATHLETIC WEAR</h1>
                 <h1>AT HYPER STEP | 2024</h1>
             </div>
-            <footer className="footer">
-    <div className="footer-section">
-        <h3>Contact Us</h3>
-        <p>Phone: +9277019076</p>
-        <p>Email: <a href="mailto:HyperStep@gmail.com">HyperStep@gmail.com</a></p>
-        <p>Follow us on Facebook</p>
-    </div>
-    <div className="footer-section">
-        <h3>Explore Sports</h3>
-        <ul>
-            <li>Basketball</li>
-            <li>Football</li>
-            <li>Running</li>
-            <li>GYM & Training</li>
-            <li>Tennis</li>
-            <li>Golf</li>
-            <li>Cycling</li>
-        </ul>
-    </div>
-    <div className="footer-section">
-        <h3>Popular Brands</h3>
-        <ul>
-            <li>NIKE</li>
-            <li>Adidas</li>
-            <li>Puma</li>
-            <li>Anta</li>
-            <li>New Balance</li>
-            <li>Under Armor</li>
-        </ul>
-    </div>
-    <div className="footer-section">
-        <h3>Our Locations</h3>
-        <ul>
-            <li>Mandaue City</li>
-            <li>Cebu City</li>
-            <li>Lapu-Lapu City</li>
-            <li>Talisay City</li>
-        </ul>
-    </div>
-    <div className="footer-section">
-        <h3>Follow Us</h3>
-        <div className="social-icons">
-            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebook /></a>
-            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer"><FaYoutube /></a>
-            <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer"><FaTiktok /></a>
-            <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagramSquare /></a>
-        </div>
-    </div>
-</footer>
 
+            <footer className="footer">
+                <div className="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>+9277019076</p>
+                    <p>HyperStep@gmail.com</p>
+                    <p>HyperStep in Facebook</p>
+                </div>
+                <div className="footer-section">
+                    <h3>Sports</h3>
+                    <p>Basketball</p>
+                    <p>Football</p>
+                    <p>Running</p>
+                    <p>GYM & Training</p>
+                    <p>Tennis</p>
+                    <p>Golf</p>
+                    <p>Cycling</p>
+                </div>
+                <div className="footer-section">
+                    <h3>Collections</h3>
+                    <p>NIKE</p>
+                    <p>Adidas</p>
+                    <p>Puma</p>
+                    <p>Anta</p>
+                    <p>New Balance</p>
+                    <p>Under Armor</p>
+                </div>
+                <div className="footer-section">
+                    <h3>Branches</h3>
+                    <p>Mandaue City</p>
+                    <p>Cebu City</p>
+                    <p>Lapu-Lapu City</p>
+                    <p>Talisay City</p>
+                </div>
+                <div className="footer-section">
+                    <h3>Follow Us</h3>
+                    <div className="social-icons">
+                        <FaFacebook />
+                        <FaYoutube />
+                        <FaTiktok />
+                        <FaTwitter />
+                        <FaInstagramSquare />
+                    </div>
+                </div>
+            </footer>
         </>
     );
 };
 
-export default Home; 
+export default Home;

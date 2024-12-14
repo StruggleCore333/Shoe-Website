@@ -2,12 +2,25 @@ import React, { useState } from 'react';
 import './style.css';
 
 const User = () => {
-  const [user, setUser] = useState({
+  const [user] = useState({
     userID: '0023',
     username: 'SuperJustin_Bryson78',
     email: 'justin@example.com',
     password: '********',
   });
+
+  const [profilePic, setProfilePic] = useState('https://via.placeholder.com/150');
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setProfilePic(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   return (
     <div className="user-profile-page">
@@ -15,9 +28,15 @@ const User = () => {
         <div className="user-profile-card">
           <div className="user-profile-image">
             <img
-              src="https://via.placeholder.com/150"
+              src={profilePic}
               alt="Profile"
               className="user-avatar"
+            />
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleImageChange}
+              className="file-input"
             />
           </div>
           <div className="user-profile-info">
