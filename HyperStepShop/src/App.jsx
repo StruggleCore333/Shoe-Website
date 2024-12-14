@@ -1,6 +1,6 @@
-
+/*
 import React from 'react';
-import Login from './LogIn';
+import Login from './Login';
 import Signup from './Signup';
 
 import { BrowserRouter, Route, BrowserRouter as Router, Routes } from "react-router-dom";
@@ -17,14 +17,10 @@ function App() {
 }
 
 export default App;
+*/
 
 
 
-
-
-
-
-/*
 import React, { useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import Nav from './comp/nav.jsx';
@@ -59,4 +55,4 @@ const App = () => {
 };
 
 export default App;
-*/
+
