@@ -36,7 +36,6 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* New Sections Added */}
       <section className="about-content">
         <div className="about-text">
           <h2>Our History</h2>

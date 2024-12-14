@@ -1,7 +1,8 @@
+
 import React, { useState } from "react";
 import './input.css';  
 import { Link, useNavigate } from "react-router-dom";
-import validation from './SignUpValidation';
+import validation from './signUpValidation';
 import axios from 'axios';
 
 function Signup() {
