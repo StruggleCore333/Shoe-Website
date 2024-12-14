@@ -1,3 +1,4 @@
+/* Global classes */
 * {
    margin: 0;
    padding: 0;
@@ -5,17 +6,32 @@
    box-sizing: border-box;
 }
 
+.wrapper {
+   display: flex; /* or display: grid; */
+   justify-content: center;
+   align-items: center;
+   height: 100vh; /* Full viewport height */
+}
+
 .header {
    padding: 20px 30px;
    width: 100%;
    display: flex;
    justify-content: space-between;
+   align-items: center; /* Center items vertically */
    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .header .logo h2 {
    cursor: pointer;
    font-size: 32px;
+}
+/* --------------------------------------------------------------------------------------------------------------------------------*/
+/* ------------------------------------------------ NAV BAR -------------------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------------------*/
+   
+.header .nav {
+   display: flex;
 }
 
 .header .nav ul {
@@ -29,7 +45,7 @@
 }
 
 .header .nav ul li .link {
-   margin-top:  30px;
+   margin-top: 30px;
    text-decoration: none;
    color: #221638;
    font-size: 18px;
@@ -64,6 +80,49 @@
    width: 100%;
 }
 
+/* Mobile styles */
+.hamburger {
+   display: none; /* Hide hamburger by default */
+   cursor: pointer;
+   font-size: 24px;
+}
+
+@media (max-width: 768px) {
+   .header .nav {
+       display: none; /* Hide nav by default on mobile */
+       flex-direction: column; /* Stack items vertically */
+       position: absolute;
+       top: 60px; /* Adjust based on header height */
+       right: 0;
+       background-color: white; /* Background color for dropdown */
+       width: 100%; /* Full width */
+       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; /* Optional shadow */
+   }
+
+   .header .nav.active {
+       display: flex; /* Show nav when active */
+   }
+
+   .header .nav ul {
+       flex-direction: column; /* Stack items vertically margin: 0; /* Remove margin for mobile */
+   }
+
+   .header .nav ul li {
+       margin: 10px 0; /* Add margin for spacing between items */
+       left: 20px;
+   }
+
+   .hamburger {
+       display: block; /* Show hamburger on mobile */
+   }
+}
+
+
+/* --------------------------------------------------------------------------------------------------------------------------------*/
+/* ---------------------------------------------- PRODUCT ------------------------------------------------------------------------------------------------*/
+/* ---------------------------------------------------------------------------------------------------------------------------------*/
+
+
 .product-container {
    padding: 30px 40px;
    width: 100%;
@@ -90,7 +149,8 @@
    transform: scale(1.05);
 }
 
-.product-container .main-product .box .img-box img {
+.product-container .main-product
+.box .img-box img {
    height: 250px;
    width: 250px;
 }
@@ -131,15 +191,18 @@
    background: #444;
 }
 
+/* --------------------------------------------------------------------------------------------------------------------------------*/
+/* ------------------------------------------------- CART ------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------------------*/
 .empty_cart {
    margin-top: 20%;
-   margin-left: 35%;
+   text-align: center; /* Center text for better mobile view */
 }
 
 .cart_shop {
-   margin-left: 45%;
-   margin-top: 30px;
-   padding: 10px 30px;
+   display: block; /* Center the button */
+   margin: 30px auto; /* Center the button */
+   padding: 10px 20px;
    border: 1px solid #333;
    border-radius: 5px;
    color: #333;
@@ -235,8 +298,10 @@
    color: red;
 }
 
+/* Updated Checkout Button Styles */
 .checkout {
-   margin-left: 45%;
+   display: block; /* Center the button */
+   margin: 20px auto; /* Center the button */
    padding: 10px 30px;
    border: none;
    border-radius: 5px;
@@ -244,7 +309,6 @@
    background: #333;
    color: #fff;
    cursor: pointer;
-   margin-top: 20px;
    transition: background 0.3s ease;
 }
 
@@ -252,12 +316,35 @@
    background: #585858;
 }
 
+/* Updated Cart Total Styles */
 .cart_total {
-   margin-left: 45%;
+   text-align: center; /* Center the total text */
    font-size: 18px;
+   margin-top: 20px; /* Add some space above */
 }
 
-/* Home Page */
+
+
+/* --------------------------------------------------------------------------------------------------------------------------------*/
+/* ----------------------------------------------------- Home Page ------------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------------------*/
+
+
+.header {
+   padding: 20px 30px;
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center; /* Center items vertically */
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.header .logo h2 {
+   cursor: pointer;
+   font-size: 32px;
+}
+
+/* HomePage styles */
 .subtext {
    text-align: center;
    background-color: #EEEEEE;
@@ -285,7 +372,7 @@
 .inBox1-3 {
    background-size: cover;
    background-position: center;
-   height: 500px;
+   height: 300px;
 }
 
 .inBox1-1 {
@@ -375,7 +462,7 @@
    justify-content: center;
    align-items: center;
    width: 50%;
-   height: 600px;
+   height: 400px;
 }
 
 .inBox3-1 {
@@ -406,24 +493,30 @@
 
 .promo2 h1 {
    font-size: 48px;
-   font-size: bold;
+   font-weight: bold;
    margin: 0;
    color: #000;
 }
 
+
+/* --------------------------------------------------------------------------------------------------------------------------------*/
+/* ----------------------------------------------------- Footer ------------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------------------*/
+
+
 .footer {
    display: flex;
-   justify-content: space-around;
+   flex-wrap: wrap; /* Allow wrapping on smaller screens */
+   justify-content: space-between;
    background-color: #EEEEEE;
-   padding: 20px 0;
+   padding: 20px;
    color: #333;
-   height: 350px;
 }
 
 .footer-section {
-   display: flex;
-   flex-direction: column;
-   align-items: flex-start;
+   flex: 1; /* Allow sections to grow equally */
+   min-width: 150px; /* Minimum width for footer sections */
+   margin: 10px; /* Space between sections */
 }
 
 .footer-section h3 {
@@ -432,25 +525,88 @@
    font-weight: bold;
 }
 
-.footer-section p {
+.footer-section p, .footer-section ul {
    margin: 5px 0;
+   font-size: 14px; /* Adjust font size for better readability */
+}
+
+.footer-section ul {
+   list-style-type: none; /* Remove bullet points */
+   padding: 0; /* Remove padding */
 }
 
 .footer-section .social-icons {
-   display: grid;
-   grid-template-columns: 1fr;
-   gap: 10px;
-   justify-items: center;
+   display: flex;
+   gap: 10px; /* Space between icons */
    margin-top: 10px;
 }
 
-.footer-section .social-icons svg {
-   font-size: 20px;
-   color: #333;
-   transition: color 0.3s ease;
+.footer-section .social-icons a {
+   color: #333; /* Icon color */
+   font-size: 20px; /* Icon size */
+   transition: color 0.3s ease; /* Transition for hover effect */
 }
 
-/* About Us */
+.footer-section .social-icons a:hover {
+   color: #007BFF; /* Change color on hover */
+}
+
+/* Media Queries for Mobile Compatibility */
+@media (max-width: 768px) {
+   .footer {
+       flex-direction: column; /* Stack footer sections */
+       align-items: center; /* Center footer items */
+   }
+
+   .footer-section {
+       align-items: center; /* Center items in footer sections */
+       margin-bottom: 20px; /* Space between sections */
+   }
+}
+
+
+/* Media Queries for Mobile Compatibility */
+@media (max-width: 768px) {
+   .box1, .box2, .box3 {
+       flex-direction: column; /* Stack boxes vertically */
+       height: auto; /* Allow height to adjust */
+   }
+
+   .inBox1-1, .inBox1-2, .inBox1-3,
+   .inBox2-1, .inBox2-2, .inBox2-3, .inBox2-4,
+   .inBox3-1, .inBox3-2 {
+       width: 100%; /* Full width on mobile */
+       height: 300px; /* Adjust height for mobile */
+       margin-right: 0; /* Remove right margin */
+   }
+
+   .subtext p {
+       font-size: 12px; /* Smaller font size */
+   }
+
+   .promo1 h1, .promo2 h1 {
+       font-size: 32px; /* Smaller heading size */
+   }
+
+   .footer {
+       flex-direction: column; /* Stack footer sections */
+       align-items: center; /* Center footer items */
+   }
+
+   .footer-section {
+       align-items: center; /* Center items in footer sections */
+       margin-bottom: 20px; /* Space between sections */
+   }
+}
+
+
+/* --------------------------------------------------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------- About Us ----------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
 .about-container {
    max-width: 1200px;
    margin: 0 auto;
@@ -560,8 +716,10 @@ blockquote em {
    margin: 0;
    letter-spacing: 1px;
 }
+/* --------------------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------- User ------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------------------*/
 
-/* User */
 .user-profile-page {
    display: flex;
    flex-direction: column;
