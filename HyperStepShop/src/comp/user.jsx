@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './style.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection
-import { useUser  } from './UserContext.jsx';
 
 const User = () => {
     
