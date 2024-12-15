@@ -5,6 +5,8 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import axios from 'axios';
 
 const Cart = ({ cartItem, setcartItem }) => {
+
+    const { userId } = useUser ();
     // Load cart items from the backend when the component mounts
     useEffect(() => {
         const fetchCartItems = async () => {
@@ -18,7 +20,7 @@ const Cart = ({ cartItem, setcartItem }) => {
         };
 
         fetchCartItems();
-    }, [setcartItem]);
+    }, [setcartItem, userId]);
 
     const inc = (product) => {
         const existingItem = cartItem.find((x) => x.id === product.id);

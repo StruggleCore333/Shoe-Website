@@ -3,13 +3,12 @@ import './style.css';
 import Detail from "./productdetail"; // Import product details
 import axios from 'axios';
 
-const Product = ({ addtocart }) => {
+const Product = ({ addtocart, userId }) => {
     const [searchTerm, setSearchTerm] = useState(""); // State for search input
     const [cartItem, setcartItem] = useState([]); // State for cart items
 
     // Function to handle adding to cart
     const handleAddToCart = async (product) => {
-        const userId = 1; // Replace with the actual user ID from your authentication logic
         const exists = cartItem.find((x) => x.id === product.id);
         if (exists) {
             alert("This Product is already added");
@@ -19,7 +18,7 @@ const Product = ({ addtocart }) => {
 
             // Create a product object to send to the database
             const productToAdd = {
-                user_id: userId,
+                user_id: userId, // Use the passed user ID
                 product_id: product.id,
                 quantity: 1,
                 title: product.Title,
