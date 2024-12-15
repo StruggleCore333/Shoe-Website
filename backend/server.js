@@ -39,6 +39,23 @@ app.post('/hyperstep', (req, res) => {
     });
 });
 
+// User login endpoint
+app.post('/hyperstep/login', (req, res) => {
+    const { email, password } = req.body;
+    const sql = "SELECT * FROM login WHERE email = ? AND password = ?";
+    
+    db.query(sql, [email, password], (err, results) => {
+        if (err) {
+            return res.status(500).json({ success: false, message: "Database error" });
+        }
+        if (results.length > 0) {
+            return res.json({ success: true }); // User found
+        } else {
+            return res.json({ success: false }); // User not found
+        }
+    });
+});
+
 // Fetch products endpoint
 app.get('/api/products', (req, res) => {
     db.query('SELECT * FROM product_details', (err, results) => {
@@ -106,6 +123,47 @@ app.delete('/api/cart/:cart_id', (req, res) => {
         return res.status(200).json({ message: "Cart item removed" });
     });
 });
+
+// Get user data
+app.get('/api/user/:user_id', (req, res) => {
+    const userId = req.params.user_id;
+    const sql = "SELECT * FROM login WHERE id = ?";
+    
+    db.query(sql, [userId], (err, results) => {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        res.json(results[0]); // Return the first user found
+    });
+});
+
+// Update user data
+app.put('/api/user/:user_id', (req, res) => {
+    const userId = req.params.user_id;
+    const { name, password } = req.body;
+    const sql = "UPDATE login SET name = ?, password = ? WHERE id = ?";
+    
+    db.query(sql, [name, password, userId], (err, results) => {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        res.json({ message: "User  updated successfully!" });
+    });
+});
+
+// Delete user account
+app.delete('/api/user/:user_id', (req, res) => {
+    const userId = req.params.user_id;
+    const sql = "DELETE FROM login WHERE id = ?";
+    
+    db.query(sql, [userId], (err, results) => {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        res.json({ message: "User  deleted successfully!" });
+    });
+});
+
 
 // Start the server
 app.listen(8081, () => {
