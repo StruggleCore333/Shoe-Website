@@ -21,15 +21,14 @@ function Signup() {
         event.preventDefault();
         const validationErrors = validation(values);
         setErrors(validationErrors);
-        if (errors.name === "" && errors.email === "" && errors.password === "") {
-            axios.post('http://localhost:8081/hyperstep', values)
+        if (validationErrors.name === "" && validationErrors.email === "" && validationErrors.password === "") {
+            axios.post('http://localhost:8081/register', values) // Change to /register
                 .then(res => {
-                    navigate('/');
+                    navigate('/'); // Redirect to home after successful signup
                 })
                 .catch(err => console.log(err));
         }
     };
-
     
     return (
         <div className="wrapper">
