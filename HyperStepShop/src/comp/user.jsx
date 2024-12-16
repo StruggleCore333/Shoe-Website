@@ -49,6 +49,19 @@ const User = () => {
         }
     };
 
+    const handleDeleteAccount = async () => {
+        const userId = user.id; // Get the user ID from the state
+        try {
+            await axios.delete(`http://localhost:8081/api/user/${userId}`);
+            alert("Your account has been deleted successfully.");
+            localStorage.removeItem('userId'); // Clear user ID from local storage
+            navigate('/'); // Redirect to login page
+        } catch (error) {
+            console.error("Error deleting user account:", error);
+            alert("There was an error deleting your account. Please try again.");
+        }
+    };
+
     // New logout function
     const handleLogout = () => {
         // Clear user session (this could involve clearing tokens, user data, etc.)
@@ -122,6 +135,7 @@ const User = () => {
                         )}
                         {/* Change here: from Delete Account to Logout */}
                         <button onClick={handleLogout} className="btn btn-danger">Logout</button>
+                        <button onClick={handleDeleteAccount} className="btn btn-danger">Delete Account</button>
                     </div>
                 </div>
             </main>
