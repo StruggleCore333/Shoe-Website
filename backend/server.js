@@ -25,20 +25,21 @@ db.connect((err) => {
 
 // User registration endpoint
 app.post('/hyperstep', (req, res) => {
-    const sql = "INSERT INTO `login`(`name`, `email`, `password`) VALUES (?, ?, ?)";
-    const values = [
-        req.body.name,
-        req.body.email,
-        req.body.password 
-    ];
-    db.query(sql, values, (err, data) => {
+    const { email, password } = req.body; // Assuming you are sending email and password
+    // Check the database for the user
+    const sql = "SELECT * FROM login WHERE email = ? AND password = ?";
+    db.query(sql, [email, password], (err, results) => {
         if (err) {
-            return res.json("Error");
-        } 
-        return res.json(data);
+            return res.json("Error"); // Handle database error
+        }
+        if (results.length > 0) {
+            // User found, return user data
+            return res.json({ id: results[0].id, name: results[0].name, email: results[0].email });
+        } else {
+            return res.json("Error"); // User not found or invalid credentials
+        }
     });
 });
-
 // Fetch products endpoint
 app.get('/api/products', (req, res) => {
     db.query('SELECT * FROM product_details', (err, results) => {
