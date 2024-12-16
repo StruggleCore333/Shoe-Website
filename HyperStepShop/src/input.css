@@ -5,10 +5,10 @@
   }
 
   .wrapper {
-    display: flex; /* or display: grid; */
+    display: flex; 
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Full viewport height */
+    height: 100vh;
   }
 
   div.container {

@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection
+import { useNavigate } from 'react-router-dom';
 
 const User = () => {
-    
     const [user, setUser ] = useState({
         id: '',
         name: '',
@@ -13,24 +12,27 @@ const User = () => {
     });
     const [newUsername, setNewUsername] = useState('');
     const [newPassword, setNewPassword] = useState('');
-    const [isEditing, setIsEditing] = useState(false); // State to toggle editing
-    const navigate = useNavigate(); // Hook for navigation
+    const [isEditing, setIsEditing] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        // Fetch user data from the backend when the component mounts
         const fetchUserData = async () => {
-            const {userId} = useUser(id); // Replace with the actual user ID from your authentication logic
+            const userId = localStorage.getItem('userId'); // Get user ID from local storage
+            if (!userId) {
+                navigate('/'); // Redirect to login if not logged in
+                return;
+            }
             try {
-                const response = await axios.get(`http://localhost:8081/api/user/${userId}`); // Use userId from context
+                const response = await axios.get(`http://localhost:8081/api/user/${userId}`);
                 setUser (response.data);
                 setNewUsername(response.data.name);
             } catch (error) {
                 console.error("Error fetching user data:", error);
             }
         };
-
+    
         fetchUserData();
-    }, []);
+    }, [navigate]);
 
     const handleUpdateUser  = async () => {
         const userId = user.id; // Get the user ID from the state
@@ -47,48 +49,42 @@ const User = () => {
         }
     };
 
-    const handleDeleteAccount = async () => {
-        const userId = user.id; // Get the user ID from the state
-        try {
-            await axios.delete(`http://localhost:8081/api/user/${userId}`);
-            alert("Account deleted successfully!");
-            navigate('/'); // Redirect to login page after deletion
-        } catch (error) {
-            console.error("Error deleting account:", error);
+    // New logout function
+    const handleLogout = () => {
+        // Clear user session (this could involve clearing tokens, user data, etc.)
+        localStorage.removeItem('userId'); // Adjust based on your authentication method
+        alert("You have been logged out.");
+        navigate('/'); // Redirect to login page
+    };
+
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setProfilePic(reader.result);
+            };
+            reader.readAsDataURL(file);
         }
     };
 
-
-
     const [profilePic, setProfilePic] = useState('https://via.placeholder.com/150');
 
-    const handleImageChange = (e) => {
-      const file = e.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          setProfilePic(reader.result);
-        };
-        reader.readAsDataURL(file);
-      }
-    };
-
     return (
-        
         <div className="user-profile-page">
             <main className="user-profile">
                 <div className="user-profile-card">
-                <div className="user-profile-image">
+                    <div className="user-profile-image">
                         <img
-                        src={profilePic}
-                        alt="Profile"
-                        className="user-avatar"
+                            src={profilePic}
+                            alt="Profile"
+                            className="user-avatar"
                         />
                         <input
-                        type="file"
-                        accept="image/*"
-                        onChange={handleImageChange}
-                        className="file-input"
+                            type="file"
+                            accept="image/*"
+                            onChange={handleImageChange}
+                            className="file-input"
                         />
                     </div>
                     <div className="user-profile-info">
@@ -115,18 +111,17 @@ const User = () => {
                                     onChange={(e) => setNewPassword(e.target.value)}
                                 />
                             ) : (
-                                <span>******</span> 
+                                <span>******</span>
                             )}
                         </div>
                         <button onClick={() => setIsEditing(!isEditing)} className="btn btn-primary">
                             {isEditing ? 'Cancel' : 'Edit'}
                         </button>
                         {isEditing && (
-                            <>
-                                <button onClick={handleUpdateUser } className="btn btn-success">Update</button>
-                            </>
+                            <button onClick={handleUpdateUser } className="btn btn-success">Update</button>
                         )}
-                        <button onClick={handleDeleteAccount} className="btn btn-danger">Delete Account</button>
+                        {/* Change here: from Delete Account to Logout */}
+                        <button onClick={handleLogout} className="btn btn-danger">Logout</button>
                     </div>
                 </div>
             </main>
@@ -135,6 +130,3 @@ const User = () => {
 };
 
 export default User;
-
-
-

@@ -1,3 +1,4 @@
+// LogIn.jsx
 import React, { useState } from "react";
 import axios from 'axios';
 import './input.css';  
@@ -16,21 +17,30 @@ function Login() {
   const handleInput = (event) => {
     setValues(prev => ({ ...prev, [event.target.name]: event.target.value }));
   };
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     const validationErrors = validation(values);
     setErrors(validationErrors);
     if (validationErrors.email === "" && validationErrors.password === "") {
-      axios.post('http://localhost:8081/hyperstep', values)
-        .then(res => {
-          // Assuming the response indicates successful login
-          if (res.data) { // You may want to check for specific success criteria
-            navigate('/homepage'); // Redirect to /home after successful login
-          }
-        })
-        .catch(err => console.log(err));
+        axios.post('http://localhost:8081/hyperstep', values)
+            .then(res => {
+                console.log("Response from server:", res); // Log the entire response
+                if (res.data && typeof res.data === 'object' && res.data.id) {
+                    const userId = res.data.id; // Assuming this is an integer
+                    localStorage.setItem('userId', userId); // Store the integer directly
+                    console.log("User   ID stored in local storage:", userId);
+                    navigate('/homepage');
+                } else {
+                    console.error("Login failed:", res.data); // Log the error message
+                    alert("Login failed: " + res.data); // Show an alert to the user
+                }
+            })
+            .catch(err => {
+                console.error("Error during login:", err);
+            });
     }
-  };
+};
 
   return (
     <div className="wrapper">

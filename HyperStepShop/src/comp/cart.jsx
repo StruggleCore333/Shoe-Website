@@ -5,16 +5,16 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import axios from 'axios';
 
 const Cart = ({ cartItem, setcartItem }) => {
-    // Load cart items from the backend when the component mounts
+
     useEffect(() => {
         const fetchCartItems = async () => {
-            const userId = 1; // Replace with the actual user ID from your authentication logic
+            const userId = parseInt(localStorage.getItem('userId'), 10);    
             try {
                 const response = await axios.get(`http://localhost:8081/api/cart/${userId}`);
-                setcartItem(response.data); // Set the cart items in state
+                setcartItem(response.data); 
             } catch (error) {
                 console.error("Error fetching cart items:", error);
-            }
+            }   
         };
 
         fetchCartItems();
