@@ -40,6 +40,20 @@ app.post('/hyperstep', (req, res) => {
         }
     });
 });
+
+// User registration endpoint
+app.post('/register', (req, res) => {
+    const { name, email, password } = req.body; // Get user data from request
+    const sql = "INSERT INTO login (name, email, password) VALUES (?, ?, ?)";
+    
+    db.query(sql, [name, email, password], (err, results) => {
+        if (err) {
+            return res.status(500).json({ error: err.message }); // Handle database error
+        }
+        res.status(201).json({ message: "User  created successfully!" }); // Respond with success message
+    });
+});
+
 // Fetch products endpoint
 app.get('/api/products', (req, res) => {
     db.query('SELECT * FROM product_details', (err, results) => {
